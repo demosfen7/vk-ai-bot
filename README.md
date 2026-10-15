@@ -28,7 +28,7 @@ python main.py
 | `VK_TOKEN` | да | Ключ доступа сообщества |
 | `VK_GROUP_ID` | да | Числовой ID сообщества |
 | `OPENAI_API_KEY` | да | Ключ OpenAI API (`sk-...`) |
-| `OPENAI_MODEL` | нет | Модель OpenAI, по умолчанию `gpt-5.4-mini` |
+| `OPENAI_MODEL` | нет | Модель OpenAI, по умолчанию `gpt-6-luna` |
 
 Если обязательной переменной нет, бот не стартует и пишет, какой именно.
 

@@ -13,7 +13,7 @@ ENV_FILE = PROJECT_ROOT / ".env"
 USERS_DIR = PROJECT_ROOT / "users"
 
 OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
-DEFAULT_OPENAI_MODEL = "gpt-5.4-mini"
+DEFAULT_OPENAI_MODEL = "gpt-6-luna"
 # Сколько последних сообщений (user + assistant) хранить и передавать в LLM.
 HISTORY_LIMIT = 20
 
