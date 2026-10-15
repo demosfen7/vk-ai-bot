@@ -1,0 +1,21 @@
+# Секреты
+.env
+
+# Истории диалогов пользователей (сама папка users/ остаётся в репозитории)
+users/*.json
+users/*.tmp
+
+# Виртуальное окружение
+venv/
+.venv/
+
+# Кэш Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Прочее
+node_modules/
+.next/
+.idea/
+.vscode/
