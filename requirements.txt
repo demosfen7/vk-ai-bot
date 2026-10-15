@@ -1,3 +1,4 @@
 vkbottle==4.11.0
 httpx==0.28.1
 python-dotenv==1.2.4
+truststore==0.10.5

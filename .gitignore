@@ -5,6 +5,9 @@
 users/*.json
 users/*.tmp
 
+# Служебное состояние VKBottle (позиция Long Poll)
+.vkbottle/
+
 # Виртуальное окружение
 venv/
 .venv/

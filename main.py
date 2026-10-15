@@ -5,10 +5,18 @@ from __future__ import annotations
 import logging
 import sys
 
-from bot.config import USERS_DIR, ConfigError, load_config
-from bot.llm_client import LLMClient
-from bot.memory import DialogMemory
-from bot.vk_client import BotService, create_bot
+import truststore
+
+# Доверять системным сертификатам ОС, а не только встроенному списку Python.
+# Нужно, если HTTPS проверяет антивирус (например, Касперский подменяет сертификат
+# api.openai.com своим). Вызывается до импорта vkbottle/aiohttp и httpx:
+# aiohttp создаёт SSL-контекст уже при импорте.
+truststore.inject_into_ssl()
+
+from bot.config import USERS_DIR, ConfigError, load_config  # noqa: E402
+from bot.llm_client import LLMClient  # noqa: E402
+from bot.memory import DialogMemory  # noqa: E402
+from bot.vk_client import BotService, create_bot  # noqa: E402
 
 
 def setup_logging() -> None:
@@ -21,6 +29,8 @@ def setup_logging() -> None:
         format="%(asctime)s | %(levelname)-7s | %(name)s | %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
     )
+    # У VKBottle свой цветной обработчик — без этого его строки в логе дублируются.
+    logging.getLogger("vkbottle").handlers.clear()
     # httpx пишет в INFO каждый запрос — это лишнее.
     logging.getLogger("httpx").setLevel(logging.WARNING)
 
